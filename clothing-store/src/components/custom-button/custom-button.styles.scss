@@ -19,4 +19,25 @@
     color: black;
     border: 1px solid black;
   }
+  &.google-sign-in {
+    background-color: #de5246;
+    color:white;
+    width:50%;
+    &:hover{
+      background-color: #d33b26;
+      border: none;
+    }
+  }
+  &.facebook-sign-in{
+    background-color: #4267B2;
+    color:white;
+    width:50%;
+    &:hover{
+      background-color: #2b50b6;
+      border: none;
+    }
+  }
+  &.submit-button{
+   width: 100%;
+  }
 }
