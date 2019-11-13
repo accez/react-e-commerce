@@ -1,7 +1,7 @@
 import React from 'react'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
-import {signInWithGoogle, signInWithFacebook} from '../../firebase/firebase.utils'
+import { auth, signInWithGoogle, signInWithFacebook } from '../../firebase/firebase.utils'
 import './sign-in.styles.scss'
 
 class SignIn extends React.Component {
@@ -14,13 +14,19 @@ class SignIn extends React.Component {
     }
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
-    this.setState({ email: "", password: "" })
+    const { email, password } = this.state
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+      this.setState({ email: "", password: "" })
+    } catch (error) {
+      console.log(error)
+    }
   }
   handleChange = e => {
     const { value, name } = e.target
-    this.setState({[name]: value})
+    this.setState({ [name]: value })
   }
   render() {
     return (
@@ -33,8 +39,8 @@ class SignIn extends React.Component {
           <FormInput name="password" type="password" value={this.state.password} handleChange={this.handleChange} label="password" autoComplete="on" required />
           <CustomButton type="submit" isSubmit>Sign in</CustomButton>
           <div className="social-button-container">
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
-          <CustomButton onClick={signInWithFacebook} isFaceBookSignIn>Sign in with Facebook</CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
+            <CustomButton onClick={signInWithFacebook} isFaceBookSignIn>Sign in with Facebook</CustomButton>
           </div>
         </form>
       </div>
