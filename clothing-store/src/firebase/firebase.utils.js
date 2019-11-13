@@ -13,6 +13,28 @@ const config = {
   measurementId: "G-QPZ2Q5GB3E"
 }
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
+  const snapShot = await userRef.get()
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth
+    const createdAt = new Date()
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      })
+    } catch (error) {
+      console.log('error creating user', error.message)
+    }
+  }
+  return userRef
+}
+
 firebase.initializeApp(config)
 
 export const auth = firebase.auth()
@@ -21,7 +43,7 @@ export const firestore = firebase.firestore()
 const faceBookProvider = new firebase.auth.FacebookAuthProvider();
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ prompt: 'select_account' })
-faceBookProvider.setCustomParameters({auth_type: 'reauthenticate'})
+faceBookProvider.setCustomParameters({ auth_type: 'reauthenticate' })
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 export const signInWithFacebook = () => auth.signInWithPopup(faceBookProvider)
