@@ -1,6 +1,9 @@
 body{
   font-family: 'Open Sans Condensed', sans-serif;
   padding: 30px 80px;
+  @media (max-width: 767.98px) { 
+    padding: 10px;
+  }
 }
 
 a{

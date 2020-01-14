@@ -5,8 +5,14 @@
   
   .title{
     margin: 10px 0;
+    @media (max-width: 991.98px) {
+      margin: 20px 0 15px 0;
+    }
   }
   [type="submit"]{
+    width: 100%;
+  }
+  @media (max-width: 991.98px) {
     width: 100%;
   }
 }

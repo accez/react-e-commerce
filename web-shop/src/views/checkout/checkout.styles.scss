@@ -1,5 +1,5 @@
 .checkout-page {
-  width: 55%;
+  width: 80%;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -35,5 +35,8 @@
   .warning-text{
     font-size: 32px;
     padding: 20px 0px;
+  }
+  @media (max-width: 1199.98px) {
+    width: 100%;
   }
 }

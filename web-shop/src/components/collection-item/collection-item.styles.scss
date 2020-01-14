@@ -19,6 +19,12 @@
     position: absolute;
     top:255px;
     display:none;
+    @media (max-width: 767.98px) {
+      display:block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0px 10px 0px 10px;
+    }
   }
   &:hover{
     .image{
@@ -43,6 +49,17 @@
 
     .price {
       width: 10%;
+    }
+  }
+    @media (max-width: 767.98px) {
+    width: 43vw;
+      &:hover{
+      .image{
+        opacity: unset;
+      }
+      .custom-button{
+        opacity: unset;
+      }
     }
   }
 }
