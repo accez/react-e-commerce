@@ -30,10 +30,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className='total'>
       <span>TOTAL: ${total}</span>
     </div>
-    <StripeButton price={total} />
-    <div className='warning-text'>
-      CC for testing stripe: 4242 4242 4242 4242 - 01/20 - CVC: 123
-    </div>
+    {cartItems.length ? <StripeButton price={total} /> : null}
   </div>
 )
 const mapStateToProps = createStructuredSelector({
