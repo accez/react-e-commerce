@@ -14,9 +14,15 @@
     height: 100%;
     width: 70px;
     padding: 25px;
-    @media (max-width: 767.98px) { 
+        @media (max-width: 767.98px) { 
       width:30px;
       padding:0;
+    }
+  }
+
+  .logo{
+    @media (max-width: 767.98px) { 
+    width:35px;
     }
   }
 
