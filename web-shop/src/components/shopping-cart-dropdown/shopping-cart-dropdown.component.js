@@ -18,13 +18,19 @@ const ShoppingCartDropdown = ({ cartItems, history, dispatch }) => (
             <span className='empty-message'>Your shopping cart is empty</span>
           )}
     </div>
-    <CustomButton onClick={() => {
-      history.push('/checkout')
-      dispatch(toggleShoppingCartHidden())
-    }}>
-      GO TO CHECKOUT
+    {
+      cartItems.length ? (
+        <CustomButton onClick={() => {
+          history.push('/checkout')
+          dispatch(toggleShoppingCartHidden())
+        }}>
+          GO TO CHECKOUT
       </CustomButton>
-  </div>
+      )
+        :
+        (null)
+    }  </div>
+
 )
 
 const mapStateToProps = createStructuredSelector({
