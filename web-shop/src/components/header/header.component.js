@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ReactComponent as Logo } from '../../assets/crown.svg'
+import { ReactComponent as Logo } from '../../assets/abstract.svg'
 import { auth } from '../../firebase/firebase.utils'
 import { createStructuredSelector } from 'reselect'
 import ShoppingCartIcon from '../shopping-cart-icon/shopping-cart-icon.component'
