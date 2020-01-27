@@ -1,0 +1,45 @@
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  @media (max-width: 767.98px) { 
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .logo-container {
+    height: 100%;
+    width: 70px;
+    padding: 25px 0px 25px 0px;
+    @media (max-width: 767.98px) { 
+      width:30px;
+      padding:0;
+    }
+  }
+
+  .logo{
+    width: 50px;
+    @media (max-width: 767.98px) { 
+    width:35px;
+    }
+  }
+
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media (max-width: 767.98px) { 
+      width:80%;
+    }
+
+    .option {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  }
+}

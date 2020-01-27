@@ -1,0 +1,18 @@
+.sign-in{
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 10px 0;
+     @media (max-width: 991.98px) {
+      margin: 20px 0 15px 0;
+    }
+  }
+  .social-button-container{
+    display: flex;
+    }
+    @media (max-width: 991.98px) {
+      width: 100%;
+    }
+}
